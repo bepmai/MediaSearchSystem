@@ -11,6 +11,8 @@ using Emgu.CV.Structure;
 using Emgu.CV.Util;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Emgu.CV.Features2D;
+using System.Diagnostics;
 
 namespace MediaSearchSystem
 {
@@ -18,103 +20,178 @@ namespace MediaSearchSystem
     {
         private bool isDrawing = false;
         private Point previousPoint;
+        private string solutionDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+
         public SearchBySketch()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void SearchBySketch_Load(object sender, EventArgs e)
         {
-            Bitmap sketch = new Bitmap(pictureBoxSketch.Image);
-            string sketchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sketch.png");
-            sketch.Save(sketchPath);
+            pictureBoxSketch.Image = new Bitmap(pictureBoxSketch.Width, pictureBoxSketch.Height);
+        }
 
-            string[] imagePaths = Directory.GetFiles(@"E:\HTTT1\nam4\ki1\gd2\DPT\BC\ImageDatabase", "*.png");
-            var results = new List<(string ImagePath, double Similarity)>();
+        private void ic_back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
 
-            // Tải ảnh phác thảo và áp dụng tiền xử lý
-            using (Image<Gray, byte> sketchImage = new Image<Gray, byte>(sketchPath))
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
+
+            this.Close();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
             {
-                // Tiền xử lý ảnh phác thảo
-                Image<Gray, byte> processedSketch = PreprocessImage(sketchImage);
-
-                foreach (string imagePath in imagePaths)
+                // Lưu ảnh phác thảo vào tệp tạm
+                Bitmap sketch = new Bitmap(pictureBoxSketch.Image);
+                Bitmap background = new Bitmap(sketch.Width, sketch.Height);
+                using (Graphics g = Graphics.FromImage(background))
                 {
-                    using (Image<Gray, byte> dbImage = new Image<Gray, byte>(imagePath))
+                    g.Clear(Color.White);
+                    g.DrawImage(sketch, 0, 0);
+                }
+                string sketchPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "sketch.jpg");
+                background.Save(sketchPath);
+
+                string imageDirectory = Path.Combine(solutionDirectory, "Resources", "ImageDatabase");
+                string[] imagePaths = Directory.GetFiles(imageDirectory, "*.*")
+                    .Where(file => file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                                   file.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                    .ToArray();
+
+                if (imagePaths.Length == 0)
+                {
+                    MessageBox.Show("Thư mục không chứa ảnh nào hợp lệ!");
+                    return;
+                }
+
+                var results = new List<(string ImagePath, double Similarity)>();
+
+                // Áp dụng tiền xử lý cho ảnh phác thảo
+                using (Image<Gray, byte> sketchImage = new Image<Gray, byte>(sketchPath))
+                {
+                    Image<Gray, byte> processedSketch = PreprocessImage(sketchImage);
+                    var orb = new ORB();
+                    VectorOfKeyPoint keypointsSketch = new VectorOfKeyPoint();
+                    Mat descriptorsSketch = new Mat();
+                    orb.DetectAndCompute(processedSketch, null, keypointsSketch, descriptorsSketch, false);
+
+                    // Nếu không phát hiện được đặc trưng trong ảnh phác thảo, thoát khỏi hàm
+                    if (descriptorsSketch.IsEmpty || keypointsSketch.Size == 0)
                     {
-                        // Resize ảnh cơ sở dữ liệu
-                        Image<Gray, byte> resizedDbImage = dbImage.Resize(processedSketch.Width, processedSketch.Height, Emgu.CV.CvEnum.Inter.Linear);
+                        MessageBox.Show("Không phát hiện được đặc trưng từ ảnh phác thảo.");
+                        return;
+                    }
 
-                        // Tiền xử lý ảnh cơ sở dữ liệu
-                        Image<Gray, byte> processedDbImage = PreprocessImage(resizedDbImage);
+                    foreach (string imagePath in imagePaths)
+                    {
+                        using (Image<Gray, byte> dbImage = new Image<Gray, byte>(imagePath))
+                        {
+                            // Resize ảnh cơ sở dữ liệu để khớp với ảnh phác thảo
+                            Image<Gray, byte> resizedDbImage = dbImage.Resize(processedSketch.Width, processedSketch.Height, Inter.Linear);
+                            Image<Gray, byte> processedDbImage = PreprocessImage(resizedDbImage);
 
-                        // Tính độ tương đồng bằng MatchTemplate
-                        Mat result = new Mat();
-                        CvInvoke.MatchTemplate(processedDbImage, processedSketch, result, Emgu.CV.CvEnum.TemplateMatchingType.CcoeffNormed);
+                            // Tiền xử lý ảnh trong cơ sở dữ liệu
+                            VectorOfKeyPoint keypointsDb = new VectorOfKeyPoint();
+                            Mat descriptorsDb = new Mat();
+                            orb.DetectAndCompute(processedDbImage, null, keypointsDb, descriptorsDb, false);
 
-                        double[] minValues, maxValues;
-                        Point[] minLocations, maxLocations;
-                        result.MinMax(out minValues, out maxValues, out minLocations, out maxLocations);
+                            // Nếu không tìm thấy đặc trưng trong ảnh cơ sở dữ liệu, bỏ qua ảnh này
+                            if (descriptorsDb.IsEmpty || keypointsDb.Size == 0)
+                            {
+                                continue;
+                            }
 
-                        double similarity = maxValues[0]; // Độ tương đồng cao nhất
-                        results.Add((imagePath, similarity));
+                            // So sánh đặc trưng giữa ảnh phác thảo và ảnh cơ sở dữ liệu
+                            var bfMatcher = new BFMatcher(DistanceType.Hamming, crossCheck: true);
+                            VectorOfDMatch matches = new VectorOfDMatch();
+                            bfMatcher.Match(descriptorsSketch, descriptorsDb, matches);
+
+                            // Tính tổng khoảng cách và tính độ tương đồng
+                            double totalDistance = 0.0;
+                            for (int i = 0; i < matches.Size; i++)
+                            {
+                                var match = matches[i];
+                                totalDistance += match.Distance;
+                            }
+
+                            // Đảm bảo tránh chia cho 0 trong trường hợp không có sự khớp nào
+                            double similarity = matches.Size > 0 ? 1.0 / (1.0 + totalDistance / matches.Size) : 0.0;
+                            results.Add((imagePath, similarity));
+                        }
                     }
                 }
+
+                // Lọc và sắp xếp kết quả theo độ tương đồng
+                const double threshold = 0.03; // Ngưỡng tương đồng
+                results = results.Where(r => r.Similarity >= threshold)
+                                 .OrderByDescending(r => r.Similarity)
+                                 .ToList();
+
+                // Hiển thị kết quả
+                DisplayResults(results);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        private Image<Gray, byte> PreprocessImage(Image<Gray, byte> inputImage)
+        {
+            int standardSize = 200; // Kích thước chuẩn
+            Image<Gray, byte> resizedImage = inputImage.Resize(standardSize, standardSize, Inter.Cubic);
 
-            // Sắp xếp danh sách kết quả theo độ tương đồng giảm dần
-            results = results.OrderByDescending(r => r.Similarity).ToList();
+            // Cân bằng histogram
+            CvInvoke.EqualizeHist(resizedImage, resizedImage);
 
-            // Hiển thị kết quả
+            // Làm mờ để giảm nhiễu
+            CvInvoke.GaussianBlur(resizedImage, resizedImage, new Size(3, 3), 1.0);
+
+            // Phát hiện biên (Edge Detection)
+            double otsuThreshold = CvInvoke.Threshold(resizedImage, new Mat(), 0, 255, Emgu.CV.CvEnum.ThresholdType.Otsu);
+            double lowerThreshold = otsuThreshold * 0.5;
+            double upperThreshold = otsuThreshold * 1.5;
+
+            Image<Gray, byte> edgeImage = new Image<Gray, byte>(resizedImage.Size);
+            CvInvoke.Canny(resizedImage, edgeImage, lowerThreshold, upperThreshold);
+
+            return edgeImage;
+        }
+
+        private void DisplayResults(List<(string ImagePath, double Similarity)> results)
+        {
+            flowLayoutPanelResults.Controls.Clear(); // Xóa kết quả cũ
+
             if (results.Any())
             {
-                flowLayoutPanelResults.Controls.Clear(); // Xóa các kết quả trước đó
-
                 foreach (var result in results)
                 {
-                    // Tạo một PictureBox để hiển thị ảnh
-                    PictureBox pb = new PictureBox();
-                    pb.Image = Image.FromFile(result.ImagePath);
-                    pb.SizeMode = PictureBoxSizeMode.Zoom; // Để ảnh vừa với khung
-                    pb.Width = 150; // Chiều rộng của khung ảnh
-                    pb.Height = 150; // Chiều cao của khung ảnh
+                    // Tạo PictureBox để hiển thị ảnh
+                    PictureBox pb = new PictureBox
+                    {
+                        Image = Image.FromFile(result.ImagePath),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Width = 150,
+                        Height = 150
+                    };
 
-                    // Thêm tooltip để hiển thị độ tương đồng
+                    // Thêm tooltip hiển thị độ tương đồng
                     ToolTip tooltip = new ToolTip();
                     tooltip.SetToolTip(pb, $"Độ tương đồng: {result.Similarity:P2}");
 
-                    // Thêm PictureBox vào FlowLayoutPanel
                     flowLayoutPanelResults.Controls.Add(pb);
                 }
 
-                MessageBox.Show($"Đã tìm thấy {results.Count} ảnh, sắp xếp theo độ tương đồng.");
+                MessageBox.Show($"Đã tìm thấy {results.Count} ảnh phù hợp với độ tương đồng cao.");
             }
             else
             {
                 MessageBox.Show("Không tìm thấy ảnh nào phù hợp.");
             }
-        }
-
-        // Hàm tiền xử lý ảnh (giữ nguyên như trước)
-        private Image<Gray, byte> PreprocessImage(Image<Gray, byte> inputImage)
-        {
-            // 1. Cân bằng độ sáng
-            Image<Gray, byte> equalizedImage = new Image<Gray, byte>(inputImage.Size);
-            CvInvoke.EqualizeHist(inputImage, equalizedImage);
-
-            // 2. Làm mờ để giảm nhiễu
-            CvInvoke.GaussianBlur(equalizedImage, equalizedImage, new Size(5, 5), 1.5);
-
-            // 3. Phát hiện biên (Edge Detection) bằng Sobel hoặc Canny
-            Image<Gray, byte> edgeImage = new Image<Gray, byte>(equalizedImage.Size);
-            CvInvoke.Canny(equalizedImage, edgeImage, 100, 200);
-
-            return edgeImage; // Trả về ảnh đã qua tiền xử lý
-        }
-
-        private void ClearSketch()
-        {
-            pictureBoxSketch.Image = new Bitmap(pictureBoxSketch.Width, pictureBoxSketch.Height);
         }
 
         private void pictureBoxSketch_MouseDown(object sender, MouseEventArgs e)
@@ -134,7 +211,6 @@ namespace MediaSearchSystem
                 previousPoint = e.Location;
                 pictureBoxSketch.Invalidate();
             }
-
         }
 
         private void pictureBoxSketch_MouseUp(object sender, MouseEventArgs e)
@@ -142,19 +218,17 @@ namespace MediaSearchSystem
             isDrawing = false;
         }
 
-        private void SearchBySketch_Load(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
+            flowLayoutPanelResults.Controls.Clear();
             pictureBoxSketch.Image = new Bitmap(pictureBoxSketch.Width, pictureBoxSketch.Height);
-        }
 
-        private void ic_back_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+            using (Graphics g = Graphics.FromImage(pictureBoxSketch.Image))
+            {
+                g.Clear(Color.White);
+            }
 
-            Form1 form1 = new Form1();
-            form1.ShowDialog();
-
-            this.Close();
+            pictureBoxSketch.Invalidate();
         }
     }
 }
