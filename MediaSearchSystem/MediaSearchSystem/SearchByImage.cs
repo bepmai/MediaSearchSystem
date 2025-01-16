@@ -38,10 +38,10 @@ namespace MediaSearchSystem
         // Trích chọn đặc trưng: HSV Histogram, Canny edges, và ORB
         private class FeatureExtractor
         {
-            public Mat ComputeHSVHistogram(Mat image)
+            public Mat ComputeHSVHistogram(Mat smoothedImage)
             {
                 Mat hsvImage = new Mat();
-                Cv2.CvtColor(image, hsvImage, ColorConversionCodes.BGR2HSV);
+                Cv2.CvtColor(smoothedImage, hsvImage, ColorConversionCodes.BGR2HSV);
                 int[] histSize = { 50, 60 }; // Hue và Saturation bins
                 Rangef[] ranges = { new Rangef(0, 180), new Rangef(0, 256) };
                 Mat hist = new Mat();
