@@ -394,8 +394,8 @@ namespace MediaSearchSystem
 
         static double CalculateSimilarity(string text1, string text2)
         {
-            var words1 = text1.Split(' ').ToList();
-            var words2 = text2.Split(' ').ToList();
+            var words1 = text1.ToLower().Split(' ', '-', '"', '\'', '?', ',', ':', ';', '.', '(', ')').ToList();
+            var words2 = text2.ToLower().Split(' ', '-', '"', '\'', '?', ',', ':', ';', '.', '(', ')').ToList();
 
             var intersection = words1.Intersect(words2).Count();
             var cosineSimilarity = (double)intersection / (Math.Sqrt(words1.Count) * Math.Sqrt(words2.Count));
