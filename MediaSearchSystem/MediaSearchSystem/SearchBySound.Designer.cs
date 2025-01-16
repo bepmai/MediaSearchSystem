@@ -34,6 +34,7 @@
             pictureBox1 = new PictureBox();
             ic_back = new PictureBox();
             textBox1 = new TextBox();
+            textBox2 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ic_back).BeginInit();
@@ -93,11 +94,19 @@
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 3;
             // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(395, 314);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(125, 27);
+            textBox2.TabIndex = 4;
+            // 
             // SearchBySound
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 655);
+            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
@@ -119,5 +128,6 @@
         private PictureBox pictureBox1;
         private PictureBox ic_back;
         private TextBox textBox1;
+        private TextBox textBox2;
     }
 }

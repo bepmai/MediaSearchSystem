@@ -28,10 +28,10 @@ namespace MediaSearchSystem
             // Tạo CircularPictureBox
             CircularPictureBox micPictureBox = new CircularPictureBox
             {
-                Width = 100,
-                Height = 100,
-                Image = Image.FromFile("path_to_mic_image.png"), // Đường dẫn hình ảnh
-                SizeMode = PictureBoxSizeMode.StretchImage, // Co giãn hình ảnh phù hợp
+                Width = 150,
+                Height = 150,
+                Image = Properties.Resources.ic_microphone, // Đường dẫn hình ảnh
+                SizeMode = PictureBoxSizeMode.CenterImage, // Co giãn hình ảnh phù hợp
                 BackColor = Color.White
             };
 
@@ -153,7 +153,7 @@ namespace MediaSearchSystem
 
                     if (!string.IsNullOrEmpty(query))
                     {
-                        //textBox1.Text = query;
+                        textBox1.Text = query;
 
                         var images = LoadImageMetadata("captions.txt");
 
@@ -161,7 +161,7 @@ namespace MediaSearchSystem
 
                         foreach (var match in bestMatches)
                         {
-                            //textBox2.Text = textBox2.Text + $"File: {match.FilePath}, Độ tương tự: {match.SimilarityScore}\n";
+                            textBox2.Text = textBox2.Text + $"File: {match.FilePath}, Độ tương tự: {match.SimilarityScore}\n";
                             //Console.WriteLine($"File: {match.FilePath}, Độ tương tự: {match.SimilarityScore}\n");
                         }
                     }
