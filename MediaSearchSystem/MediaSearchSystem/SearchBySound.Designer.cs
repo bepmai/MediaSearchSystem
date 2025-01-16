@@ -33,9 +33,12 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             ic_back = new PictureBox();
+            textBox1 = new TextBox();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ic_back).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -43,9 +46,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(202, 27);
+            label1.Location = new Point(231, 36);
             label1.Name = "label1";
-            label1.Size = new Size(294, 30);
+            label1.Size = new Size(375, 37);
             label1.TabIndex = 1;
             label1.Text = "Tìm kiếm ảnh bằng âm thanh";
             // 
@@ -57,16 +60,18 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 84);
+            panel1.Size = new Size(914, 112);
             panel1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(519, 3);
+            pictureBox1.Location = new Point(593, 4);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(99, 69);
+            pictureBox1.Size = new Size(113, 92);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -74,20 +79,39 @@
             // ic_back
             // 
             ic_back.Image = (Image)resources.GetObject("ic_back.Image");
-            ic_back.Location = new Point(40, 31);
+            ic_back.Location = new Point(46, 41);
+            ic_back.Margin = new Padding(3, 4, 3, 4);
             ic_back.Name = "ic_back";
-            ic_back.Size = new Size(23, 26);
+            ic_back.Size = new Size(26, 35);
             ic_back.SizeMode = PictureBoxSizeMode.Zoom;
             ic_back.TabIndex = 4;
             ic_back.TabStop = false;
             ic_back.Click += ic_back_Click_1;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(365, 180);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(82, 213);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(125, 62);
+            pictureBox2.TabIndex = 4;
+            pictureBox2.TabStop = false;
+            // 
             // SearchBySound
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 491);
+            ClientSize = new Size(914, 655);
+            Controls.Add(pictureBox2);
+            Controls.Add(textBox1);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SearchBySound";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SearchBySound";
@@ -95,7 +119,9 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)ic_back).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -104,5 +130,7 @@
         private Panel panel1;
         private PictureBox pictureBox1;
         private PictureBox ic_back;
+        private TextBox textBox1;
+        private PictureBox pictureBox2;
     }
 }
