@@ -21,6 +21,8 @@ namespace MediaSearchSystem
         private bool isDrawing = false;
         private Point previousPoint;
         private string solutionDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+        private List<List<Point>> drawnLines = new List<List<Point>>(); // Lưu danh sách các nét vẽ
+        private List<Point> currentLine = null; // Lưu tạm nét đang vẽ
 
         public SearchBySketch()
         {
@@ -197,6 +199,7 @@ namespace MediaSearchSystem
         private void pictureBoxSketch_MouseDown(object sender, MouseEventArgs e)
         {
             isDrawing = true;
+            currentLine = new List<Point> { e.Location }; // Tạo nét mới với điểm bắt đầu
             previousPoint = e.Location;
         }
 
@@ -208,7 +211,9 @@ namespace MediaSearchSystem
                 {
                     g.DrawLine(Pens.Black, previousPoint, e.Location);
                 }
+
                 previousPoint = e.Location;
+                currentLine.Add(e.Location);
                 pictureBoxSketch.Invalidate();
             }
         }
@@ -216,6 +221,11 @@ namespace MediaSearchSystem
         private void pictureBoxSketch_MouseUp(object sender, MouseEventArgs e)
         {
             isDrawing = false;
+            if (currentLine != null && currentLine.Count > 1)
+            {
+                drawnLines.Add(currentLine); // Lưu nét vừa vẽ vào danh sách
+            }
+            currentLine = null;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -229,6 +239,36 @@ namespace MediaSearchSystem
             }
 
             pictureBoxSketch.Invalidate();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (drawnLines.Count > 0)
+            {
+                // Xóa nét cuối cùng
+                drawnLines.RemoveAt(drawnLines.Count - 1);
+
+                // Tạo lại hình ảnh từ các nét còn lại
+                pictureBoxSketch.Image = new Bitmap(pictureBoxSketch.Width, pictureBoxSketch.Height);
+
+                using (Graphics g = Graphics.FromImage(pictureBoxSketch.Image))
+                {
+                    g.Clear(Color.White); // Làm sạch hình nền
+                    foreach (var line in drawnLines)
+                    {
+                        for (int i = 1; i < line.Count; i++)
+                        {
+                            g.DrawLine(Pens.Black, line[i - 1], line[i]); // Vẽ lại từng nét
+                        }
+                    }
+                }
+
+                pictureBoxSketch.Invalidate();
+            }
+            else
+            {
+                MessageBox.Show("Không còn nét nào để xóa!");
+            }
         }
     }
 }
