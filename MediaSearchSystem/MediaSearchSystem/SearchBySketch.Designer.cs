@@ -37,6 +37,7 @@
             pictureBox1 = new PictureBox();
             ic_back = new PictureBox();
             btnClear = new Button();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxSketch).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -45,13 +46,16 @@
             // 
             // btnSearch
             // 
+            btnSearch.BackColor = Color.DarkCyan;
+            btnSearch.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = SystemColors.ButtonHighlight;
             btnSearch.Location = new Point(442, 171);
             btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(137, 68);
+            btnSearch.Size = new Size(137, 46);
             btnSearch.TabIndex = 0;
             btnSearch.Text = "Tìm kiếm";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
             // pictureBoxSketch
@@ -127,20 +131,36 @@
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(442, 270);
+            btnClear.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClear.Location = new Point(442, 308);
             btnClear.Margin = new Padding(3, 4, 3, 4);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(137, 68);
+            btnClear.Size = new Size(137, 46);
             btnClear.TabIndex = 5;
             btnClear.Text = "Xóa";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
+            // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.DarkSeaGreen;
+            btnBack.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnBack.ForeColor = SystemColors.ButtonHighlight;
+            btnBack.Location = new Point(442, 244);
+            btnBack.Margin = new Padding(3, 4, 3, 4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(137, 41);
+            btnBack.TabIndex = 6;
+            btnBack.Text = "Quay lại";
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // SearchBySketch
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 655);
+            Controls.Add(btnBack);
             Controls.Add(btnClear);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanelResults);
@@ -169,5 +189,6 @@
         private PictureBox pictureBox1;
         private PictureBox ic_back;
         private Button btnClear;
+        private Button btnBack;
     }
 }
