@@ -80,7 +80,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
-            //pictureBox1.Click += pictureBox1_Click;
             // 
             // ic_back
             // 
@@ -133,17 +132,16 @@
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = true;
             btnDelete.Click += btnDelete_Click;
-
             // 
             // flpResults
             // 
+            flpResults.AutoScroll = true;
             flpResults.Controls.Add(label3);
-            flpResults.Location = new Point(26, 316);
+            flpResults.Location = new Point(57, 305);
             flpResults.Name = "flpResults";
-            flpResults.Size = new Size(863, 327);
+            flpResults.Size = new Size(795, 327);
             flpResults.TabIndex = 10;
             flpResults.Paint += flpResults_Paint;
-
             // 
             // label3
             // 

@@ -53,7 +53,7 @@ namespace MediaSearchSystem
             public Mat DetectEdges(Mat image)
             {
                 Mat edges = new Mat();
-                Cv2.Canny(image, edges, 100, 200); // Phát hiện biên cạnh Canny
+                Cv2.Canny(image, edges, 100, 200); 
                 return edges;
             }
 
@@ -170,8 +170,8 @@ namespace MediaSearchSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string[] dataFolderPaths = System.IO.Directory.GetFiles(@"D:\Nam4\DPT\ck_dpt\Resources\ImageDatabase\archive\dataset\val\images", "*.*", System.IO.SearchOption.AllDirectories);
-            BuildIndex(dataFolderPaths); // Xây dựng chỉ mục ảnh
+            string[] dataFolderPaths = System.IO.Directory.GetFiles(@"D:\Nam4\DPT\archive\dataset\val\images", "*.*", System.IO.SearchOption.AllDirectories);
+            BuildIndex(dataFolderPaths); 
 
             ImageMatcher matcher = new ImageMatcher();
             var results = matcher.FindSimilarImages(inputHist, inputEdges, inputORBDescriptors, imageIndex);
@@ -193,16 +193,17 @@ namespace MediaSearchSystem
                     Height = 150
                 };
 
-                ////  Label hiển thị điểm số 
-                //Label label3 = new Label()
-                //{
-                //    Name = "label3",
-                //    Text = $"Độtươngtự: {score:F4}",
-                //    TextAlign = ContentAlignment.MiddleCenter,
-                //    AutoSize = false,
-                //    Dock = DockStyle.Bottom,
-                //    Height = 20
-                //};
+                // Label hiển thị điểm số 
+                Label label3 = new Label()
+                {
+                    Name = "label3",
+                    Text = $"Độtươngtự: {score:F4}",
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = false,
+                    Dock = DockStyle.Bottom,
+                    Height = 20,
+                    Visible = false 
+                };
 
                 Panel panel = new Panel()
                 {
@@ -211,13 +212,22 @@ namespace MediaSearchSystem
                     Margin = new Padding(5)
                 };
 
+                // Thêm sự kiện hiển thị nhãn khi di chuột
+                pictureBox.MouseEnter += (s, e) =>
+                {
+                    label3.Visible = true; 
+                };
+
+                pictureBox.MouseLeave += (s, e) =>
+                {
+                    label3.Visible = false; 
+                };
+
                 panel.Controls.Add(pictureBox);
                 panel.Controls.Add(label3);
 
                 flpResults.Controls.Add(panel);
             }
-
-
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -236,9 +246,6 @@ namespace MediaSearchSystem
         }
         private void flpResults_Paint(object sender, PaintEventArgs e)
         {
-
         }
-
-       
     }
 }
