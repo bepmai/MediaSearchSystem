@@ -3,20 +3,7 @@
   "WorkspaceRootPath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,51 +26,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SearchBySound.cs",
-              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySound.cs",
-              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySound.cs",
-              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySound.cs",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySound.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAxwB4AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T03:39:04.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SearchBySound.cs [Design]",
-              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySound.cs",
-              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySound.cs",
-              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySound.cs [Design]",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySound.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T03:33:54.353Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SearchBySketch.cs [Design]",
-              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
-              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySketch.cs",
-              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs [Design]",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T03:21:03.912Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SearchBySketch.cs",
-              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
-              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySketch.cs",
-              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAABmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T03:17:32.415Z",
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAM0VAAAAAAAAAAASwN4VAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-01-16T04:13:11.159Z",
               "EditorCaption": ""
             }
           ]

@@ -120,3 +120,8 @@ D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-wi
 D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-windows\MediaSea.008B5C0F.Up2Date
 D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-windows\MediaSearchSystem.genruntimeconfig.cache
 D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-windows\ref\MediaSearchSystem.dll
+D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows\OpenCvSharp.dll
+D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows\runtimes\win-x64\native\OpenCvSharpExtern.dll
+D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows\runtimes\win-x64\native\opencv_videoio_ffmpeg4100_64.dll
+D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows\runtimes\win-x86\native\OpenCvSharpExtern.dll
+D:\DPT\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows\runtimes\win-x86\native\opencv_videoio_ffmpeg4100.dll
