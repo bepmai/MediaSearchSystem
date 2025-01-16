@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\",
+  "WorkspaceRootPath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -21,6 +21,14 @@
           "SelectedChildIndex": 0,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "SearchBySketch.cs [Design]",
@@ -29,7 +37,7 @@
               "ToolTip": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs [Design]*",
               "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T02:11:00.739Z",
+              "WhenOpened": "2025-01-16T04:17:11.545Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -42,8 +50,8 @@
               "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs*",
               "ViewState": "AgIAAM0AAAAAAAAAAAA1wNcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T02:09:40.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-16T04:17:07.696Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
