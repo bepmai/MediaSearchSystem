@@ -24,6 +24,20 @@ namespace MediaSearchSystem
         public SearchBySound()
         {
             InitializeComponent();
+
+            // Tạo CircularPictureBox
+            CircularPictureBox micPictureBox = new CircularPictureBox
+            {
+                Width = 100,
+                Height = 100,
+                Image = Image.FromFile("path_to_mic_image.png"), // Đường dẫn hình ảnh
+                SizeMode = PictureBoxSizeMode.StretchImage, // Co giãn hình ảnh phù hợp
+                BackColor = Color.White
+            };
+
+            // Đặt vị trí và thêm vào form
+            micPictureBox.Location = new Point(70, 200); // Tuỳ chỉnh vị trí
+            this.Controls.Add(micPictureBox);
         }
 
         private void ic_back_Click_1(object sender, EventArgs e)
