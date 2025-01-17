@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {}
+    "C:\\Users\\tuanh\\Source\\Repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {}
   },
   "projects": {
-    "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {
+    "C:\\Users\\tuanh\\Source\\Repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+        "projectUniqueName": "C:\\Users\\tuanh\\Source\\Repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
         "projectName": "MediaSearchSystem",
-        "projectPath": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\",
+        "projectPath": "C:\\Users\\tuanh\\Source\\Repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+        "packagesPath": "C:\\Users\\tuanh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tuanh\\Source\\Repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tuanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -42,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[4.10.0.20241108, )"
             },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
             "Vosk": {
               "target": "Package",
               "version": "[0.3.38, )"
@@ -98,7 +102,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

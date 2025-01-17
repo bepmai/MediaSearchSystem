@@ -26,5 +26,6 @@ namespace MediaSearchSystem
 
             this.Close();
         }
+
     }
 }
