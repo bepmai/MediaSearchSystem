@@ -90,31 +90,34 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(12, 90);
+            flowLayoutPanel1.BackgroundImage = (Image)resources.GetObject("flowLayoutPanel1.BackgroundImage");
+            flowLayoutPanel1.Location = new Point(12, 104);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(477, 389);
+            flowLayoutPanel1.Size = new Size(517, 346);
             flowLayoutPanel1.TabIndex = 2;
             // 
             // btnTextSearch
             // 
-            btnTextSearch.Location = new Point(495, 162);
+            btnTextSearch.Location = new Point(535, 161);
             btnTextSearch.Name = "btnTextSearch";
             btnTextSearch.Size = new Size(75, 23);
             btnTextSearch.TabIndex = 3;
             btnTextSearch.Text = "Tìm kiếm";
             btnTextSearch.UseVisualStyleBackColor = true;
+            btnTextSearch.Click += btnTextSearch_Click;
             // 
             // txtContentSearch
             // 
-            txtContentSearch.Location = new Point(495, 117);
+            txtContentSearch.Location = new Point(535, 104);
             txtContentSearch.Name = "txtContentSearch";
             txtContentSearch.PlaceholderText = "Hãy nhập nội dung ảnh bạn muốn tìm";
-            txtContentSearch.Size = new Size(293, 23);
+            txtContentSearch.Size = new Size(250, 23);
             txtContentSearch.TabIndex = 4;
+            txtContentSearch.TextChanged += txtContentSearch_TextChanged;
             // 
             // btnChoseImage
             // 
-            btnChoseImage.Location = new Point(495, 456);
+            btnChoseImage.Location = new Point(535, 427);
             btnChoseImage.Name = "btnChoseImage";
             btnChoseImage.Size = new Size(75, 23);
             btnChoseImage.TabIndex = 5;
@@ -123,9 +126,9 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(495, 229);
+            pictureBox2.Location = new Point(535, 190);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(293, 221);
+            pictureBox2.Size = new Size(253, 221);
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
             // 
@@ -133,7 +136,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 491);
+            ClientSize = new Size(800, 467);
             Controls.Add(pictureBox2);
             Controls.Add(btnChoseImage);
             Controls.Add(txtContentSearch);

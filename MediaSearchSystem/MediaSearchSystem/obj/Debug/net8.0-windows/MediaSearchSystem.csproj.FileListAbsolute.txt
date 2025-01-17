@@ -201,3 +201,4 @@ C:\Users\tuanh\Source\Repos\MediaSearchSystem\MediaSearchSystem\MediaSearchSyste
 C:\Users\tuanh\Source\Repos\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-windows\MediaSea.008B5C0F.Up2Date
 C:\Users\tuanh\Source\Repos\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-windows\MediaSearchSystem.genruntimeconfig.cache
 C:\Users\tuanh\Source\Repos\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\obj\Debug\net8.0-windows\ref\MediaSearchSystem.dll
+C:\Users\tuanh\Source\Repos\MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows\Newtonsoft.Json.dll

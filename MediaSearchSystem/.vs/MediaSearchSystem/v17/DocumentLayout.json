@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\imagemetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\imagemetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,7 +51,7 @@
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchByText.cs",
               "ToolTip": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByText.cs*",
               "RelativeToolTip": "MediaSearchSystem\\SearchByText.cs*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswBwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAADwv0UAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T12:28:47.466Z",
               "EditorCaption": ""
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\Program.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\Program.cs",
@@ -78,19 +78,21 @@
               "RelativeToolTip": "MediaSearchSystem\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T12:20:51.269Z"
+              "WhenOpened": "2025-01-17T12:20:51.269Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ImageMetadata.cs",
               "DocumentMoniker": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\ImageMetadata.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\ImageMetadata.cs",
               "ToolTip": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\ImageMetadata.cs",
               "RelativeToolTip": "MediaSearchSystem\\ImageMetadata.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T12:20:43.922Z"
+              "WhenOpened": "2025-01-17T12:20:43.922Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -98,7 +100,6 @@
               "Title": "BiQuadFilter.cs",
               "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\BiQuadFilter.cs",
               "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\BiQuadFilter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T09:44:29.047Z"
             },
@@ -112,7 +113,8 @@
               "RelativeToolTip": "MediaSearchSystem\\SearchBySound.cs",
               "ViewState": "AgIAAHYAAAAAAAAAAAAswHoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T07:43:03.29Z"
+              "WhenOpened": "2025-01-16T07:43:03.29Z",
+              "EditorCaption": ""
             }
           ]
         }
