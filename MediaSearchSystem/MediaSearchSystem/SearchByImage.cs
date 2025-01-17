@@ -42,7 +42,7 @@ namespace MediaSearchSystem
             {
                 Mat hsvImage = new Mat();
                 Cv2.CvtColor(smoothedImage, hsvImage, ColorConversionCodes.BGR2HSV);
-                int[] histSize = { 50, 60 }; // Hue và Saturation bins
+                int[] histSize = { 50, 60 }; 
                 Rangef[] ranges = { new Rangef(0, 180), new Rangef(0, 256) };
                 Mat hist = new Mat();
                 Cv2.CalcHist(new[] { hsvImage }, new[] { 0, 1 }, null, hist, 2, histSize, ranges);
@@ -60,12 +60,9 @@ namespace MediaSearchSystem
             public KeyPoint[] ExtractORBFeatures(Mat image, out Mat descriptors)
             {
                 var orb = OpenCvSharp.ORB.Create();
-                // Phát hiện các điểm đặc trưng (keypoints)
                 KeyPoint[] keypoints = orb.Detect(image);
-
-                // Tính toán descriptors cho các keypoints
                 descriptors = new Mat();
-                orb.Compute(image, ref keypoints, descriptors); // Lưu ý tham số keypoints là ref
+                orb.Compute(image, ref keypoints, descriptors); 
 
                 return keypoints;
             }
@@ -92,7 +89,6 @@ namespace MediaSearchSystem
                 var bf = new BFMatcher(NormTypes.Hamming, crossCheck: true);
                 var matches = bf.Match(desc1, desc2);
 
-                // Cộng dồn khoảng cách và chuyển đổi giá trị float thành int
                 return matches.Sum(m => (int)m.Distance);
             }
 
@@ -153,7 +149,7 @@ namespace MediaSearchSystem
             }
         }
 
-        // Tạo chỉ mục cho các ảnh trong thư mục dữ liệu (chỉ làm một lần)
+        // Tạo chỉ mục cho các ảnh trong thư mục dữ liệu 
         private void BuildIndex(string[] imagePaths)
         {
             FeatureExtractor extractor = new FeatureExtractor();
@@ -196,7 +192,6 @@ namespace MediaSearchSystem
                     Height = 150
                 };
 
-                // Label hiển thị điểm số 
                 Label label3 = new Label()
                 {
                     Name = "label3",
@@ -215,7 +210,6 @@ namespace MediaSearchSystem
                     Margin = new Padding(5)
                 };
 
-                // Thêm sự kiện hiển thị nhãn khi di chuột
                 pictureBox.MouseEnter += (s, e) =>
                 {
                     label3.Visible = true; 
