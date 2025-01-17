@@ -170,7 +170,10 @@ namespace MediaSearchSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string[] dataFolderPaths = System.IO.Directory.GetFiles(@"D:\Nam4\DPT\archive\dataset\val\images", "*.*", System.IO.SearchOption.AllDirectories);
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string imageFolderPath = Path.Combine(baseDirectory, @"dataset\images");
+            string[] dataFolderPaths = System.IO.Directory.GetFiles(imageFolderPath, "*.*", System.IO.SearchOption.AllDirectories);
+
             BuildIndex(dataFolderPaths); 
 
             ImageMatcher matcher = new ImageMatcher();
