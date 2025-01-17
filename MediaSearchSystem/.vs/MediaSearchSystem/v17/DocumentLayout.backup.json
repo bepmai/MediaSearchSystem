@@ -18,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -26,10 +26,10 @@
               "Title": "SearchBySketch.cs [Design]",
               "DocumentMoniker": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySketch.cs",
-              "ToolTip": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs [Design]*",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs [Design]*",
+              "ToolTip": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs [Design]",
+              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T02:11:00.739Z",
+              "WhenOpened": "2025-01-16T13:00:18.069Z",
               "EditorCaption": " [Design]"
             },
             {
@@ -38,9 +38,9 @@
               "Title": "SearchBySketch.cs",
               "DocumentMoniker": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySketch.cs",
-              "ToolTip": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs*",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs*",
-              "ViewState": "AgIAAM0AAAAAAAAAAAA1wNcAAAAsAAAAAAAAAA==",
+              "ToolTip": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
+              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAQwO8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-15T02:09:40.485Z",
               "EditorCaption": ""
