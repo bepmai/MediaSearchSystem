@@ -237,7 +237,7 @@ namespace MediaSearchSystem
             {
                 g.Clear(Color.White);
             }
-
+            drawnLines.Clear();
             pictureBoxSketch.Invalidate();
         }
 
