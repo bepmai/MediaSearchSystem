@@ -1,57 +1,67 @@
 # Search Capabilities and Package Installation
 
-This document explains the search capabilities and the corresponding packages required for implementing search functionality by sketch, sound, and image.
+Tài liệu này giải thích các khả năng tìm kiếm và các gói tương ứng cần thiết để triển khai chức năng tìm kiếm bằng bản phác thảo, âm thanh và hình ảnh.
 
 ---
 
 ## Search by Sketch
-To enable search by sketch functionality, use the following package:
+Để bật tìm kiếm theo chức năng phác thảo, hãy sử dụng gói sau:
 
 ```powershell
 Install-Package Emgu.CV
 ```
 
-Emgu.CV is a cross-platform .NET wrapper for OpenCV that supports real-time computer vision operations.
-
 ---
 
 ## Search by Sound
-To implement search by sound, you will need the following tools and packages:
+Để triển khai tìm kiếm bằng âm thanh, bạn sẽ cần các công cụ và gói sau:
 
-1. **NAudio**: A powerful .NET library for audio manipulation.
+1. **NAudio**: Thư viện .NET mạnh mẽ để thao tác âm thanh.
 
    ```powershell
    Install-Package NAudio
    ```
 
-2. **Vosk**: An open-source speech recognition toolkit.
+2. **Vosk**: Bộ công cụ nhận dạng giọng nói nguồn mở.
 
    ```powershell
    Install-Package Vosk
    ```
 
-3. **FFmpeg**: A multimedia framework for handling audio and video files. Ensure FFmpeg is installed and properly configured in your system's PATH.
+3. **FFmpeg**: Một khung đa phương tiện để xử lý các tập tin âm thanh và video. Đảm bảo FFmpeg được cài đặt và cấu hình đúng cách trong PATH của hệ thống của bạn.
 
    - [FFmpeg Download](https://ffmpeg.org/download.html)
+
+Cách cài đặt:
+
+1. Tải Vosk Model (vosk-model-en-us-0.22) trên drive nhóm về MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows
+
+   - [Vosk Model Download](https://drive.google.com/drive/folders/1v1DTGt0KOXyxh6Wgaq5cG7jZJhXkpTgG)
+  
+2. Tải FFmpeg (ffmpeg.exe) trên drive nhóm về MediaSearchSystem\MediaSearchSystem\MediaSearchSystem\bin\Debug\net8.0-windows
+
+   - [FFmpeg Download](https://drive.google.com/drive/folders/1v1DTGt0KOXyxh6Wgaq5cG7jZJhXkpTgG)
+  
+3. Khởi chạy
 
 ---
 
 ## Search by Image
-To implement search by image functionality, use the following packages:
+Để triển khai chức năng tìm kiếm theo hình ảnh, hãy sử dụng các gói sau:
 
-1. **OpenCvSharp4**: A .NET wrapper for OpenCV.
+1. **OpenCvSharp4**: Trình bao bọc .NET cho OpenCV.
 
    ```powershell
    Install-Package OpenCvSharp4
    ```
 
-2. **OpenCvSharp4.Windows**: Windows-specific bindings for OpenCvSharp4.
+2. **OpenCvSharp4.Windows**: Các ràng buộc dành riêng cho Windows cho OpenCvSharp4.
 
    ```powershell
    Install-Package OpenCvSharp4.Windows
    ```
 
-3. **Modify Image Data Source Path**: Update the image data source path in your code. For example:
+3. **Modify Image Data Source Path**: Cập nhật đường dẫn nguồn dữ liệu hình ảnh trong mã của bạn. Ví dụ:
 
    ```csharp
    // Change the image data source path at line 173
