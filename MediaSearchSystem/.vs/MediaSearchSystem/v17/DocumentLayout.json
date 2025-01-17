@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\biquadfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\biquadfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\similarcls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\similarcls.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysketch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,14 +35,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BiQuadFilter.cs",
-              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\BiQuadFilter.cs",
-              "RelativeDocumentMoniker": "MediaSearchSystem\\BiQuadFilter.cs",
-              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\BiQuadFilter.cs",
-              "RelativeToolTip": "MediaSearchSystem\\BiQuadFilter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "Title": "SimilarCls.cs",
+              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SimilarCls.cs",
+              "RelativeDocumentMoniker": "MediaSearchSystem\\SimilarCls.cs",
+              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SimilarCls.cs",
+              "RelativeToolTip": "MediaSearchSystem\\SimilarCls.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T09:44:29.047Z",
+              "WhenOpened": "2025-01-17T14:10:26.305Z",
               "EditorCaption": ""
             },
             {
@@ -57,7 +53,7 @@
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySound.cs",
               "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySound.cs",
               "RelativeToolTip": "MediaSearchSystem\\SearchBySound.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAswIIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAcwK8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T07:43:03.29Z",
               "EditorCaption": ""
@@ -72,18 +68,6 @@
               "RelativeToolTip": "MediaSearchSystem\\SearchBySound.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T07:42:12.213Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SearchBySketch.cs [Design]",
-              "DocumentMoniker": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
-              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySketch.cs",
-              "ToolTip": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs [Design]",
-              "RelativeToolTip": "MediaSearchSystem\\SearchBySketch.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-16T07:42:11.643Z",
               "EditorCaption": " [Design]"
             }
           ]

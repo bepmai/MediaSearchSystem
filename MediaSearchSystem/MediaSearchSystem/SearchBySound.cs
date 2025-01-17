@@ -15,6 +15,7 @@ using Vosk;
 using System.Text.Json;
 using MathNet.Filtering.IIR;
 using MathNet.Filtering;
+using System.Collections;
 
 namespace MediaSearchSystem
 {
@@ -174,7 +175,7 @@ namespace MediaSearchSystem
 
                                 var item = new ListViewItem
                                 {
-                                    Text = Path.GetFileName((match.SimilarityScore * 100) + "%"),
+                                    Text = Path.GetFileName(match.SimilarityScore+ "%"),
                                     ImageIndex = imageList1.Images.Count - 1
                                 };
 
@@ -347,7 +348,7 @@ namespace MediaSearchSystem
                 {
                     image.FilePath,
                     image.Description,
-                    SimilarityScore = CalculateSimilarity(query, image.Description)
+                    SimilarityScore = calSimilar2AmTiet(query, image.Description)
                 })
                 .Where(match => match.SimilarityScore > 0.1) // Chỉ lấy những mục có SimilarityScore > 0.1
                 .GroupBy(match => match.FilePath) // Nhóm theo FilePath
@@ -361,6 +362,19 @@ namespace MediaSearchSystem
                     SimilarityScore = match.SimilarityScore
                 })
                 .ToList();
+        }
+
+        public static double calSimilar2AmTiet(string str1, string str2)
+        {
+            ArrayList fealst = new ArrayList();
+            double[] feaVector = SimilarCls.getFeaVector2Amtiet(str1, ref fealst);
+
+            ArrayList fealst2 = new ArrayList();
+            double[] feaVector2 = SimilarCls.getFeaVector2Amtiet(str2, ref fealst2);
+
+            ArrayList allFealst = SimilarCls.unifyFealst(fealst, fealst2);
+
+            return SimilarCls.calSimilarCosinelAllFea(allFealst, fealst, fealst2, feaVector, feaVector2) * 100;
         }
 
         private static void RunExe(string v, string para)
