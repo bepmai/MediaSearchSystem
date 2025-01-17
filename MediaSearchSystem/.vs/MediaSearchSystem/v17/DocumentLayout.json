@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbytext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|c:\\users\\tuanh\\source\\repos\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\imagemetadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,7 +33,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,20 +45,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SearchByText.cs",
               "DocumentMoniker": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByText.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchByText.cs",
               "ToolTip": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByText.cs*",
               "RelativeToolTip": "MediaSearchSystem\\SearchByText.cs*",
-              "ViewState": "AgIAAD4AAAAAAAAAAADwv0UAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAmwC0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T12:28:47.466Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SearchByText.cs [Design]",
               "DocumentMoniker": "C:\\Users\\tuanh\\source\\repos\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByText.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchByText.cs",

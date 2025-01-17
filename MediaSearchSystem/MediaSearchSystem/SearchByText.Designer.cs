@@ -36,8 +36,9 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btnTextSearch = new Button();
             txtContentSearch = new TextBox();
-            btnChoseImage = new Button();
             pictureBox2 = new PictureBox();
+            label2 = new Label();
+            btnSearchAdvan = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ic_back).BeginInit();
@@ -98,7 +99,7 @@
             // 
             // btnTextSearch
             // 
-            btnTextSearch.Location = new Point(535, 161);
+            btnTextSearch.Location = new Point(535, 133);
             btnTextSearch.Name = "btnTextSearch";
             btnTextSearch.Size = new Size(75, 23);
             btnTextSearch.TabIndex = 3;
@@ -115,30 +116,44 @@
             txtContentSearch.TabIndex = 4;
             txtContentSearch.TextChanged += txtContentSearch_TextChanged;
             // 
-            // btnChoseImage
-            // 
-            btnChoseImage.Location = new Point(535, 427);
-            btnChoseImage.Name = "btnChoseImage";
-            btnChoseImage.Size = new Size(75, 23);
-            btnChoseImage.TabIndex = 5;
-            btnChoseImage.Text = "Chọn ảnh";
-            btnChoseImage.UseVisualStyleBackColor = true;
-            // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(535, 190);
+            pictureBox2.BackColor = Color.FromArgb(224, 224, 224);
+            pictureBox2.InitialImage = null;
+            pictureBox2.Location = new Point(535, 202);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(253, 221);
+            pictureBox2.Size = new Size(253, 209);
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(535, 172);
+            label2.Name = "label2";
+            label2.Size = new Size(180, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Chọn ảnh để tìm kiếm đúng hơn";
+            // 
+            // btnSearchAdvan
+            // 
+            btnSearchAdvan.Location = new Point(535, 427);
+            btnSearchAdvan.Name = "btnSearchAdvan";
+            btnSearchAdvan.Size = new Size(121, 23);
+            btnSearchAdvan.TabIndex = 8;
+            btnSearchAdvan.Text = "Tìm kiếm nâng cao";
+            btnSearchAdvan.UseVisualStyleBackColor = true;
+            btnSearchAdvan.Click += btnSearchAdvan_Click;
             // 
             // SearchByText
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 467);
+            Controls.Add(btnSearchAdvan);
+            Controls.Add(label2);
             Controls.Add(pictureBox2);
-            Controls.Add(btnChoseImage);
             Controls.Add(txtContentSearch);
             Controls.Add(btnTextSearch);
             Controls.Add(flowLayoutPanel1);
@@ -163,7 +178,8 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Button btnTextSearch;
         private TextBox txtContentSearch;
-        private Button btnChoseImage;
         private PictureBox pictureBox2;
+        private Label label2;
+        private Button btnSearchAdvan;
     }
 }
