@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Vosk;
+using System.Text.Json;
 
 namespace MediaSearchSystem
 {
@@ -21,6 +22,7 @@ namespace MediaSearchSystem
         private WaveFileWriter writer;
         private string outputFilePath = "recordedAudio.wav";
         private string processedFilePath = "processedAudio.wav";
+        private string solutionDirectory = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
         public SearchBySound()
         {
             InitializeComponent();
@@ -28,15 +30,19 @@ namespace MediaSearchSystem
             // Tạo CircularPictureBox
             CircularPictureBox micPictureBox = new CircularPictureBox
             {
-                Width = 150,
-                Height = 150,
+                Width = 125,
+                Height = 125,
                 Image = Properties.Resources.ic_microphone, // Đường dẫn hình ảnh
                 SizeMode = PictureBoxSizeMode.CenterImage, // Co giãn hình ảnh phù hợp
                 BackColor = Color.White
             };
 
             // Đặt vị trí và thêm vào form
-            micPictureBox.Location = new Point(70, 200); // Tuỳ chỉnh vị trí
+            micPictureBox.Location = new Point(15, 140); // Tuỳ chỉnh vị trí
+            micPictureBox.MouseDown += (s, e) => button1_MouseDown(s, e);
+            micPictureBox.MouseUp += (s, e) => button1_MouseUp(s, e);
+            micPictureBox.MouseEnter += (s, e) => micPictureBox.BackColor = Color.Teal;
+            micPictureBox.MouseLeave += (s, e) => micPictureBox.BackColor = Color.White;
             this.Controls.Add(micPictureBox);
         }
 
@@ -124,6 +130,8 @@ namespace MediaSearchSystem
         {
             try
             {
+                this.Enabled = false;
+
                 if (waveIn != null)
                 {
                     waveIn.StopRecording();
@@ -143,26 +151,54 @@ namespace MediaSearchSystem
                     else
                     {
                         MessageBox.Show("Không tìm thấy file thu âm!");
+                        return;
                     }
 
                     string modelPath = "vosk-model-en-us-0.22";
-                    string dictionaryPath = "frequency_dictionary_en_82_765.txt";
-                    int maxEditDistance = 2;
-
                     string query = await ConvertSpeechToTextAsync(outputFilePath, modelPath);
 
                     if (!string.IsNullOrEmpty(query))
                     {
                         textBox1.Text = query;
 
-                        var images = LoadImageMetadata("captions.txt");
+                        string imageDirectory = Path.Combine(solutionDirectory, "Resources", "ImageEnglishDatabase");
+                        string[] imagePaths = Directory.GetFiles(imageDirectory, "*.*")
+                            .Where(file => file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                                           file.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                            .ToArray();
 
+                        if (imagePaths.Length == 0)
+                        {
+                            MessageBox.Show("Thư mục không chứa ảnh nào hợp lệ!");
+                            return;
+                        }
+
+                        var images = LoadImageMetadata(imageDirectory);
                         var bestMatches = FindBestMatches(query, images);
+
+                        listView1.Items.Clear();
+                        imageList1.Images.Clear();
 
                         foreach (var match in bestMatches)
                         {
-                            textBox2.Text = textBox2.Text + $"File: {match.FilePath}, Độ tương tự: {match.SimilarityScore}\n";
-                            //Console.WriteLine($"File: {match.FilePath}, Độ tương tự: {match.SimilarityScore}\n");
+                            try
+                            {
+                                Image image = Image.FromFile(match.FilePath);
+
+                                imageList1.Images.Add(image);
+
+                                var item = new ListViewItem
+                                {
+                                    Text = Path.GetFileName((match.SimilarityScore * 100) + "%"),
+                                    ImageIndex = imageList1.Images.Count - 1
+                                };
+
+                                listView1.Items.Add(item);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Không thể tải ảnh từ {match.FilePath}: {ex.Message}");
+                            }
                         }
                     }
                 }
@@ -170,6 +206,12 @@ namespace MediaSearchSystem
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+            finally
+            {
+                textBox1.Enabled = true;
+                button1.Enabled = true;
+                this.Enabled = true;
             }
         }
 
@@ -256,7 +298,11 @@ namespace MediaSearchSystem
                             recognizer.AcceptWaveform(buffer, bytesRead);
                         }
 
-                        return recognizer.FinalResult().Trim();
+                        // Nhận kết quả cuối cùng và trích xuất giá trị từ JSON
+                        string jsonResult = recognizer.FinalResult().Trim();
+
+                        var resultObject = JsonDocument.Parse(jsonResult);
+                        return resultObject.RootElement.GetProperty("text").GetString();
                     }
                 }
                 catch (Exception ex)
@@ -267,21 +313,44 @@ namespace MediaSearchSystem
             });
         }
 
-        static List<ImageMetadata> LoadImageMetadata(string txtFilePath)
+        static List<ImageMetadata> LoadImageMetadata(string imageDirectory)
         {
-            var lines = File.ReadLines(txtFilePath);
+            //var lines = File.ReadLines(txtFilePath);
             var metadataList = new List<ImageMetadata>();
 
-            foreach (var line in lines)
+            //foreach (var line in lines)
+            //{
+            //    var parts = line.Split(',');
+            //    if (parts.Length == 2)
+            //    {
+            //        metadataList.Add(new ImageMetadata
+            //        {
+            //            FilePath = "Images/" + parts[0].Trim(),
+            //            Description = parts[1].Trim()
+            //        });
+            //    }
+            //}
+
+            byte[] fileContent = Properties.Resources.ImageEnglishCaptions;
+
+            // Nếu cần chuyển đổi mảng byte sang chuỗi (UTF-8)
+            string fileAsString = System.Text.Encoding.UTF8.GetString(fileContent);
+
+            // Đọc từng dòng
+            using (StringReader reader = new StringReader(fileAsString))
             {
-                var parts = line.Split(',');
-                if (parts.Length == 2)
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    metadataList.Add(new ImageMetadata
+                    var parts = line.Split(',');
+                    if (parts.Length == 2)
                     {
-                        FilePath = "Images/" + parts[0].Trim(),
-                        Description = parts[1].Trim()
-                    });
+                        metadataList.Add(new ImageMetadata
+                        {
+                            FilePath = imageDirectory + "\\" + parts[0].Trim(),
+                            Description = parts[1].Trim()
+                        });
+                    }
                 }
             }
 
@@ -325,12 +394,60 @@ namespace MediaSearchSystem
 
         static double CalculateSimilarity(string text1, string text2)
         {
-            var words1 = text1.Split(' ').ToList();
-            var words2 = text2.Split(' ').ToList();
+            var words1 = text1.ToLower().Split(' ', '-', '"', '\'', '?', ',', ':', ';', '.', '(', ')').ToList();
+            var words2 = text2.ToLower().Split(' ', '-', '"', '\'', '?', ',', ':', ';', '.', '(', ')').ToList();
 
             var intersection = words1.Intersect(words2).Count();
             var cosineSimilarity = (double)intersection / (Math.Sqrt(words1.Count) * Math.Sqrt(words2.Count));
             return cosineSimilarity;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textBox1.Text))
+            {
+                string query = textBox1.Text;
+
+                string imageDirectory = Path.Combine(solutionDirectory, "Resources", "ImageEnglishDatabase");
+                string[] imagePaths = Directory.GetFiles(imageDirectory, "*.*")
+                    .Where(file => file.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                                   file.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                    .ToArray();
+
+                if (imagePaths.Length == 0)
+                {
+                    MessageBox.Show("Thư mục không chứa ảnh nào hợp lệ!");
+                    return;
+                }
+
+                var images = LoadImageMetadata(imageDirectory);
+                var bestMatches = FindBestMatches(query, images);
+
+                listView1.Items.Clear();
+                imageList1.Images.Clear();
+
+                foreach (var match in bestMatches)
+                {
+                    try
+                    {
+                        Image image = Image.FromFile(match.FilePath);
+
+                        imageList1.Images.Add(image);
+
+                        var item = new ListViewItem
+                        {
+                            Text = Path.GetFileName((match.SimilarityScore * 100) + "%"),
+                            ImageIndex = imageList1.Images.Count - 1
+                        };
+
+                        listView1.Items.Add(item);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Không thể tải ảnh từ {match.FilePath}: {ex.Message}");
+                    }
+                }
+            }
         }
     }
 }
