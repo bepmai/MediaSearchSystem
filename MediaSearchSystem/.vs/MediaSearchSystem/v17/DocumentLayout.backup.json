@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\nam4\\dpt\\ck_dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|d:\\nam4\\dpt\\ck_dpt\\mediasearchsystem\\mediasearchsystem\\mediasearchsystem\\searchbyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\mediasearchsystem\\searchbyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbyimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\mediasearchsystem\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5E402D2D-89D1-49B2-8E7C-EB50A38D6D7E}|MediaSearchSystem\\MediaSearchSystem.csproj|solutionrelative:mediasearchsystem\\searchbysound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -35,6 +47,41 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SearchByImage.cs",
+              "DocumentMoniker": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByImage.cs",
+              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchByImage.cs",
+              "ToolTip": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByImage.cs*",
+              "RelativeToolTip": "MediaSearchSystem\\SearchByImage.cs*",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAqwGsAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T07:56:35.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SearchByImage.cs [Design]",
+              "DocumentMoniker": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByImage.cs",
+              "RelativeDocumentMoniker": "MediaSearchSystem\\SearchByImage.cs",
+              "ToolTip": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchByImage.cs [Design]",
+              "RelativeToolTip": "MediaSearchSystem\\SearchByImage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T07:55:27.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\Form1.cs",
+              "RelativeDocumentMoniker": "MediaSearchSystem\\Form1.cs",
+              "ToolTip": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\Form1.cs [Design]",
+              "RelativeToolTip": "MediaSearchSystem\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T07:54:41.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "SearchBySound.cs [Design]",
               "DocumentMoniker": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySound.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySound.cs",
@@ -46,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "SearchBySketch.cs [Design]",
               "DocumentMoniker": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\SearchBySketch.cs",
               "RelativeDocumentMoniker": "MediaSearchSystem\\SearchBySketch.cs",

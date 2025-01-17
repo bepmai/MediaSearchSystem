@@ -105,7 +105,7 @@ namespace MediaSearchSystem
 
             public Dictionary<string, double> FindSimilarImages(Mat inputHist, Mat inputEdges, Mat inputORB,
                 Dictionary<string, (Mat Histogram, Mat Edges, Mat ORBDescriptors)> index,
-                double w1 = 0.4, double w2 = 0.3, double w3 = 0.3)
+                double w1 = 0.3, double w2 = 0.4, double w3 = 0.3)
             {
                 var results = new Dictionary<string, double>();
 
@@ -197,7 +197,7 @@ namespace MediaSearchSystem
                 Label label3 = new Label()
                 {
                     Name = "label3",
-                    Text = $"Độtươngtự: {score:F4}",
+                    Text = $"Độtương tự: {score:F4}",
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = false,
                     Dock = DockStyle.Bottom,

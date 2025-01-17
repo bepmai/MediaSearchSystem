@@ -105,9 +105,9 @@
             // pbSearchImage
             // 
             pbSearchImage.BackColor = SystemColors.GradientInactiveCaption;
-            pbSearchImage.Location = new Point(271, 170);
+            pbSearchImage.Location = new Point(309, 152);
             pbSearchImage.Name = "pbSearchImage";
-            pbSearchImage.Size = new Size(299, 129);
+            pbSearchImage.Size = new Size(232, 129);
             pbSearchImage.SizeMode = PictureBoxSizeMode.StretchImage;
             pbSearchImage.TabIndex = 7;
             pbSearchImage.TabStop = false;
@@ -137,9 +137,9 @@
             // 
             flpResults.AutoScroll = true;
             flpResults.Controls.Add(label3);
-            flpResults.Location = new Point(57, 305);
+            flpResults.Location = new Point(12, 305);
             flpResults.Name = "flpResults";
-            flpResults.Size = new Size(795, 327);
+            flpResults.Size = new Size(890, 327);
             flpResults.TabIndex = 10;
             flpResults.Paint += flpResults_Paint;
             // 
