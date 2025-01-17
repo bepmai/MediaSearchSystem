@@ -1,4 +1,4 @@
-# Search Capabilities and Package Installation
+﻿# Search Capabilities and Package Installation
 
 Tài liệu này giải thích các khả năng tìm kiếm và các gói tương ứng cần thiết để triển khai chức năng tìm kiếm bằng bản phác thảo, âm thanh và hình ảnh.
 

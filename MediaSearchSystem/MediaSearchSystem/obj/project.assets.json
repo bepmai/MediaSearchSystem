@@ -2485,23 +2485,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+      "projectUniqueName": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
       "projectName": "MediaSearchSystem",
-      "projectPath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\",
+      "projectPath": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "6cPPRqGI9+o=",
   "success": true,
-  "projectFilePath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+  "projectFilePath": "D:\\Nam4\\DPT\\ck_dpt\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\emgu.cv\\4.9.0.5494\\emgu.cv.4.9.0.5494.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\emgu.cv.runtime.windows\\4.9.0.5494\\emgu.cv.runtime.windows.4.9.0.5494.nupkg.sha512",

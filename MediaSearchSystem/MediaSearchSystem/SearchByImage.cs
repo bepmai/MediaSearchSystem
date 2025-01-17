@@ -38,11 +38,11 @@ namespace MediaSearchSystem
         // Trích chọn đặc trưng: HSV Histogram, Canny edges, và ORB
         private class FeatureExtractor
         {
-            public Mat ComputeHSVHistogram(Mat image)
+            public Mat ComputeHSVHistogram(Mat smoothedImage)
             {
                 Mat hsvImage = new Mat();
-                Cv2.CvtColor(image, hsvImage, ColorConversionCodes.BGR2HSV);
-                int[] histSize = { 50, 60 }; // Hue và Saturation bins
+                Cv2.CvtColor(smoothedImage, hsvImage, ColorConversionCodes.BGR2HSV);
+                int[] histSize = { 50, 60 }; 
                 Rangef[] ranges = { new Rangef(0, 180), new Rangef(0, 256) };
                 Mat hist = new Mat();
                 Cv2.CalcHist(new[] { hsvImage }, new[] { 0, 1 }, null, hist, 2, histSize, ranges);
@@ -60,12 +60,9 @@ namespace MediaSearchSystem
             public KeyPoint[] ExtractORBFeatures(Mat image, out Mat descriptors)
             {
                 var orb = OpenCvSharp.ORB.Create();
-                // Phát hiện các điểm đặc trưng (keypoints)
                 KeyPoint[] keypoints = orb.Detect(image);
-
-                // Tính toán descriptors cho các keypoints
                 descriptors = new Mat();
-                orb.Compute(image, ref keypoints, descriptors); // Lưu ý tham số keypoints là ref
+                orb.Compute(image, ref keypoints, descriptors); 
 
                 return keypoints;
             }
@@ -92,7 +89,6 @@ namespace MediaSearchSystem
                 var bf = new BFMatcher(NormTypes.Hamming, crossCheck: true);
                 var matches = bf.Match(desc1, desc2);
 
-                // Cộng dồn khoảng cách và chuyển đổi giá trị float thành int
                 return matches.Sum(m => (int)m.Distance);
             }
 
@@ -105,7 +101,7 @@ namespace MediaSearchSystem
 
             public Dictionary<string, double> FindSimilarImages(Mat inputHist, Mat inputEdges, Mat inputORB,
                 Dictionary<string, (Mat Histogram, Mat Edges, Mat ORBDescriptors)> index,
-                double w1 = 0.4, double w2 = 0.3, double w3 = 0.3)
+                double w1 = 0.3, double w2 = 0.4, double w3 = 0.3)
             {
                 var results = new Dictionary<string, double>();
 
@@ -153,7 +149,7 @@ namespace MediaSearchSystem
             }
         }
 
-        // Tạo chỉ mục cho các ảnh trong thư mục dữ liệu (chỉ làm một lần)
+        // Tạo chỉ mục cho các ảnh trong thư mục dữ liệu 
         private void BuildIndex(string[] imagePaths)
         {
             FeatureExtractor extractor = new FeatureExtractor();
@@ -170,7 +166,10 @@ namespace MediaSearchSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string[] dataFolderPaths = System.IO.Directory.GetFiles(@"D:\Nam4\DPT\archive\dataset\val\images", "*.*", System.IO.SearchOption.AllDirectories);
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string imageFolderPath = Path.Combine(baseDirectory, @"dataset\images");
+            string[] dataFolderPaths = System.IO.Directory.GetFiles(imageFolderPath, "*.*", System.IO.SearchOption.AllDirectories);
+
             BuildIndex(dataFolderPaths); 
 
             ImageMatcher matcher = new ImageMatcher();
@@ -193,11 +192,10 @@ namespace MediaSearchSystem
                     Height = 150
                 };
 
-                // Label hiển thị điểm số 
                 Label label3 = new Label()
                 {
                     Name = "label3",
-                    Text = $"Độtươngtự: {score:F4}",
+                    Text = $"Độtương tự: {score:F4}",
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = false,
                     Dock = DockStyle.Bottom,
@@ -212,7 +210,6 @@ namespace MediaSearchSystem
                     Margin = new Padding(5)
                 };
 
-                // Thêm sự kiện hiển thị nhãn khi di chuột
                 pictureBox.MouseEnter += (s, e) =>
                 {
                     label3.Visible = true; 
