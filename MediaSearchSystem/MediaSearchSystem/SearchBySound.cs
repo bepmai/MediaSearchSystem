@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Vosk;
 using System.Text.Json;
+using MathNet.Filtering.IIR;
+using MathNet.Filtering;
 
 namespace MediaSearchSystem
 {
@@ -72,29 +74,14 @@ namespace MediaSearchSystem
             waveIn = null;
         }
 
-        private void ProcessAudio(string inputPath, string outputPath)
+        private void ConvertToPcm16kHz(string inputFilePath, string outputFilePath)
         {
-            using (var reader = new AudioFileReader(inputPath))
-            using (var writer = new WaveFileWriter(outputPath, reader.WaveFormat))
+            using (var reader = new AudioFileReader(inputFilePath))
+            using (var resampler = new MediaFoundationResampler(reader, new WaveFormat(16000, 16, 1)))
             {
-                var buffer = new float[reader.WaveFormat.SampleRate]; // 1 giây dữ liệu
-                int samplesRead;
-
-                while ((samplesRead = reader.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    // Loại bỏ tiếng ồn bằng High-pass filter
-                    var filteredBuffer = ApplyHighPassFilter(buffer.Take(samplesRead).ToArray(), reader.WaveFormat.SampleRate);
-
-                    // Ghi vào file mới
-                    writer.WriteSamples(filteredBuffer, 0, filteredBuffer.Length);
-                }
+                resampler.ResamplerQuality = 60; // Chất lượng cao
+                WaveFileWriter.CreateWaveFile(outputFilePath, resampler);
             }
-        }
-
-        private float[] ApplyHighPassFilter(float[] buffer, int sampleRate)
-        {
-            var filter = BiQuadFilter.HighPassFilter(sampleRate, 300, 1); // Cắt tần số dưới 300Hz
-            return buffer.Select(sample => filter.Transform(sample)).ToArray();
         }
 
         private async void ShowTemporaryToolTip(Control control, string message, int duration)
@@ -110,7 +97,7 @@ namespace MediaSearchSystem
             try
             {
                 waveIn = new WaveIn();
-                waveIn.WaveFormat = new WaveFormat(16000, 1); // 16000kHz, Mono
+                waveIn.WaveFormat = new WaveFormat(16000, 16, 1); // 16000kHz, Mono
 
                 waveIn.DataAvailable += WaveIn_DataAvailable;
                 waveIn.RecordingStopped += WaveIn_RecordingStopped;
@@ -118,7 +105,6 @@ namespace MediaSearchSystem
                 writer = new WaveFileWriter(outputFilePath, waveIn.WaveFormat);
 
                 waveIn.StartRecording();
-                //MessageBox.Show("Bắt đầu thu âm!");
             }
             catch (Exception ex)
             {
@@ -143,19 +129,18 @@ namespace MediaSearchSystem
 
                     ShowTemporaryToolTip(this, "Dừng thu âm!", 3000);
 
-                    if (File.Exists(outputFilePath))
-                    {
-                        // Chỉ xử lý sau khi đảm bảo tài nguyên đã được giải phóng
-                        ProcessAudio(outputFilePath, processedFilePath);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy file thu âm!");
-                        return;
-                    }
+                    //if (File.Exists(outputFilePath))
+                    //{
+                    //    ConvertToPcm16kHz(outputFilePath, processedFilePath);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Không tìm thấy file thu âm!");
+                    //    return;
+                    //}
 
                     string modelPath = "vosk-model-en-us-0.22";
-                    string query = await ConvertSpeechToTextAsync(outputFilePath, modelPath);
+                    string query = await ConvertSpeechToTextAsync(processedFilePath, modelPath);
 
                     if (!string.IsNullOrEmpty(query))
                     {
@@ -283,8 +268,20 @@ namespace MediaSearchSystem
                         return null;
                     }
 
-                    string para = $"-i {audioFilePath} -ar 16000 -ac 1 {audioFilePath}";
+                    string para = $"-i {audioFilePath} -af afftdn {audioFilePath}";
                     RunExe("ffmpeg.exe", para);
+
+                    //para = $"-i {audioFilePath} -af lowpass=f=500 {audioFilePath}";
+                    //RunExe("ffmpeg.exe", para);
+
+                    //para = $"-i {audioFilePath} -af highpass=f=300 {audioFilePath}";
+                    //RunExe("ffmpeg.exe", para);
+
+                    para = $"-i {audioFilePath} -af loudnorm {audioFilePath}";
+                    RunExe("ffmpeg.exe", para);
+
+                    //para = $"-i {audioFilePath} -af aecho=0.8:0.88:60:0.4 {audioFilePath}";
+                    //RunExe("ffmpeg.exe", para);
 
                     var model = new Model(modelPath);
                     using (var recognizer = new VoskRecognizer(model, 16000))
@@ -315,21 +312,7 @@ namespace MediaSearchSystem
 
         static List<ImageMetadata> LoadImageMetadata(string imageDirectory)
         {
-            //var lines = File.ReadLines(txtFilePath);
             var metadataList = new List<ImageMetadata>();
-
-            //foreach (var line in lines)
-            //{
-            //    var parts = line.Split(',');
-            //    if (parts.Length == 2)
-            //    {
-            //        metadataList.Add(new ImageMetadata
-            //        {
-            //            FilePath = "Images/" + parts[0].Trim(),
-            //            Description = parts[1].Trim()
-            //        });
-            //    }
-            //}
 
             byte[] fileContent = Properties.Resources.ImageEnglishCaptions;
 
