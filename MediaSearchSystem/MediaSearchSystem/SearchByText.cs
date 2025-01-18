@@ -58,7 +58,7 @@ namespace MediaSearchSystem
             try
             {
                 flowLayoutPanel1.BackgroundImage = null;
-                var response = await client.PostAsync("http://192.168.1.13:5001/find_similar", content);
+                var response = await client.PostAsync("http://192.168.1.22:5001/find_similar", content);
                 response.EnsureSuccessStatusCode();
 
                 var reponseContent = await response.Content.ReadAsStringAsync();
@@ -125,7 +125,7 @@ namespace MediaSearchSystem
                 formData.Add(fileContent, "image", Path.GetFileName(imagePath));
                 
                 flowLayoutPanel1.BackgroundImage = null;
-                var response = await client.PostAsync("http://192.168.1.13:5002/find_similar_image", formData);
+                var response = await client.PostAsync("http://192.168.1.22:5002/find_similar_image", formData);
                 response.EnsureSuccessStatusCode();
 
                 var reponseContent = await response.Content.ReadAsStringAsync();
