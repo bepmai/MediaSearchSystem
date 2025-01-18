@@ -145,7 +145,7 @@ namespace MediaSearchSystem
         private Image<Gray, byte> PreprocessImage(Image<Gray, byte> inputImage)
         {
             int standardSize = 200; // Kích thước chuẩn
-            Image<Gray, byte> resizedImage = inputImage.Resize(standardSize, standardSize, Inter.Cubic);
+            Image<Gray, byte> resizedImage = ResizeImageManually(inputImage, standardSize, standardSize);
 
             // Cân bằng histogram
             CvInvoke.EqualizeHist(resizedImage, resizedImage);
@@ -162,6 +162,30 @@ namespace MediaSearchSystem
             CvInvoke.Canny(resizedImage, edgeImage, lowerThreshold, upperThreshold);
 
             return edgeImage;
+        }
+        private Image<Gray, byte> ResizeImageManually(Image<Gray, byte> inputImage, int newWidth, int newHeight)
+        {
+            int originalWidth = inputImage.Width;
+            int originalHeight = inputImage.Height;
+
+            // Tạo một ảnh mới có kích thước chuẩn
+            Image<Gray, byte> resizedImage = new Image<Gray, byte>(newWidth, newHeight);
+
+            // Áp dụng thuật toán nội suy gần nhất (Nearest Neighbor Interpolation)
+            for (int y = 0; y < newHeight; y++)
+            {
+                for (int x = 0; x < newWidth; x++)
+                {
+                    // Tính toán vị trí pixel trong ảnh gốc
+                    int originalX = (int)((double)x / newWidth * originalWidth);
+                    int originalY = (int)((double)y / newHeight * originalHeight);
+
+                    // Lấy giá trị màu xám của pixel từ ảnh gốc và gán vào ảnh đã thay đổi kích thước
+                    resizedImage[y, x] = inputImage[originalY, originalX];
+                }
+            }
+
+            return resizedImage;
         }
 
         private void DisplayResults(List<(string ImagePath, double Similarity)> results)
