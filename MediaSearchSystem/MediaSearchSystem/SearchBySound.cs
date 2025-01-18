@@ -13,6 +13,9 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Vosk;
 using System.Text.Json;
+using MathNet.Filtering.IIR;
+using MathNet.Filtering;
+using System.Collections;
 
 namespace MediaSearchSystem
 {
@@ -72,29 +75,14 @@ namespace MediaSearchSystem
             waveIn = null;
         }
 
-        private void ProcessAudio(string inputPath, string outputPath)
+        private void ConvertToPcm16kHz(string inputFilePath, string outputFilePath)
         {
-            using (var reader = new AudioFileReader(inputPath))
-            using (var writer = new WaveFileWriter(outputPath, reader.WaveFormat))
+            using (var reader = new AudioFileReader(inputFilePath))
+            using (var resampler = new MediaFoundationResampler(reader, new WaveFormat(16000, 16, 1)))
             {
-                var buffer = new float[reader.WaveFormat.SampleRate]; // 1 giây dữ liệu
-                int samplesRead;
-
-                while ((samplesRead = reader.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    // Loại bỏ tiếng ồn bằng High-pass filter
-                    var filteredBuffer = ApplyHighPassFilter(buffer.Take(samplesRead).ToArray(), reader.WaveFormat.SampleRate);
-
-                    // Ghi vào file mới
-                    writer.WriteSamples(filteredBuffer, 0, filteredBuffer.Length);
-                }
+                resampler.ResamplerQuality = 60; // Chất lượng cao
+                WaveFileWriter.CreateWaveFile(outputFilePath, resampler);
             }
-        }
-
-        private float[] ApplyHighPassFilter(float[] buffer, int sampleRate)
-        {
-            var filter = BiQuadFilter.HighPassFilter(sampleRate, 300, 1); // Cắt tần số dưới 300Hz
-            return buffer.Select(sample => filter.Transform(sample)).ToArray();
         }
 
         private async void ShowTemporaryToolTip(Control control, string message, int duration)
@@ -110,7 +98,7 @@ namespace MediaSearchSystem
             try
             {
                 waveIn = new WaveIn();
-                waveIn.WaveFormat = new WaveFormat(16000, 1); // 16000kHz, Mono
+                waveIn.WaveFormat = new WaveFormat(16000, 16, 1); // 16000kHz, Mono
 
                 waveIn.DataAvailable += WaveIn_DataAvailable;
                 waveIn.RecordingStopped += WaveIn_RecordingStopped;
@@ -118,7 +106,6 @@ namespace MediaSearchSystem
                 writer = new WaveFileWriter(outputFilePath, waveIn.WaveFormat);
 
                 waveIn.StartRecording();
-                //MessageBox.Show("Bắt đầu thu âm!");
             }
             catch (Exception ex)
             {
@@ -143,19 +130,18 @@ namespace MediaSearchSystem
 
                     ShowTemporaryToolTip(this, "Dừng thu âm!", 3000);
 
-                    if (File.Exists(outputFilePath))
-                    {
-                        // Chỉ xử lý sau khi đảm bảo tài nguyên đã được giải phóng
-                        ProcessAudio(outputFilePath, processedFilePath);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không tìm thấy file thu âm!");
-                        return;
-                    }
+                    //if (File.Exists(outputFilePath))
+                    //{
+                    //    ConvertToPcm16kHz(outputFilePath, processedFilePath);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Không tìm thấy file thu âm!");
+                    //    return;
+                    //}
 
                     string modelPath = "vosk-model-en-us-0.22";
-                    string query = await ConvertSpeechToTextAsync(outputFilePath, modelPath);
+                    string query = await ConvertSpeechToTextAsync(processedFilePath, modelPath);
 
                     if (!string.IsNullOrEmpty(query))
                     {
@@ -189,7 +175,7 @@ namespace MediaSearchSystem
 
                                 var item = new ListViewItem
                                 {
-                                    Text = Path.GetFileName((match.SimilarityScore * 100) + "%"),
+                                    Text = Path.GetFileName(match.SimilarityScore+ "%"),
                                     ImageIndex = imageList1.Images.Count - 1
                                 };
 
@@ -283,8 +269,20 @@ namespace MediaSearchSystem
                         return null;
                     }
 
-                    string para = $"-i {audioFilePath} -ar 16000 -ac 1 {audioFilePath}";
+                    string para = $"-i {audioFilePath} -af afftdn {audioFilePath}";
                     RunExe("ffmpeg.exe", para);
+
+                    //para = $"-i {audioFilePath} -af lowpass=f=500 {audioFilePath}";
+                    //RunExe("ffmpeg.exe", para);
+
+                    //para = $"-i {audioFilePath} -af highpass=f=300 {audioFilePath}";
+                    //RunExe("ffmpeg.exe", para);
+
+                    para = $"-i {audioFilePath} -af loudnorm {audioFilePath}";
+                    RunExe("ffmpeg.exe", para);
+
+                    //para = $"-i {audioFilePath} -af aecho=0.8:0.88:60:0.4 {audioFilePath}";
+                    //RunExe("ffmpeg.exe", para);
 
                     var model = new Model(modelPath);
                     using (var recognizer = new VoskRecognizer(model, 16000))
@@ -315,21 +313,7 @@ namespace MediaSearchSystem
 
         static List<ImageMetadata> LoadImageMetadata(string imageDirectory)
         {
-            //var lines = File.ReadLines(txtFilePath);
             var metadataList = new List<ImageMetadata>();
-
-            //foreach (var line in lines)
-            //{
-            //    var parts = line.Split(',');
-            //    if (parts.Length == 2)
-            //    {
-            //        metadataList.Add(new ImageMetadata
-            //        {
-            //            FilePath = "Images/" + parts[0].Trim(),
-            //            Description = parts[1].Trim()
-            //        });
-            //    }
-            //}
 
             byte[] fileContent = Properties.Resources.ImageEnglishCaptions;
 
@@ -364,7 +348,7 @@ namespace MediaSearchSystem
                 {
                     image.FilePath,
                     image.Description,
-                    SimilarityScore = CalculateSimilarity(query, image.Description)
+                    SimilarityScore = calSimilar2AmTiet(query, image.Description)
                 })
                 .Where(match => match.SimilarityScore > 0.1) // Chỉ lấy những mục có SimilarityScore > 0.1
                 .GroupBy(match => match.FilePath) // Nhóm theo FilePath
@@ -380,6 +364,19 @@ namespace MediaSearchSystem
                 .ToList();
         }
 
+        public static double calSimilar2AmTiet(string str1, string str2)
+        {
+            ArrayList fealst = new ArrayList();
+            double[] feaVector = SimilarCls.getFeaVector2Amtiet(str1, ref fealst);
+
+            ArrayList fealst2 = new ArrayList();
+            double[] feaVector2 = SimilarCls.getFeaVector2Amtiet(str2, ref fealst2);
+
+            ArrayList allFealst = SimilarCls.unifyFealst(fealst, fealst2);
+
+            return SimilarCls.calSimilarCosinelAllFea(allFealst, fealst, fealst2, feaVector, feaVector2) * 100;
+        }
+
         private static void RunExe(string v, string para)
         {
             ProcessStartInfo processStartInfo = new ProcessStartInfo();
@@ -390,16 +387,6 @@ namespace MediaSearchSystem
             processStartInfo.WindowStyle = ProcessWindowStyle.Normal;
             Process process = Process.Start(processStartInfo);
             process.WaitForExit();
-        }
-
-        static double CalculateSimilarity(string text1, string text2)
-        {
-            var words1 = text1.ToLower().Split(' ', '-', '"', '\'', '?', ',', ':', ';', '.', '(', ')').ToList();
-            var words2 = text2.ToLower().Split(' ', '-', '"', '\'', '?', ',', ':', ';', '.', '(', ')').ToList();
-
-            var intersection = words1.Intersect(words2).Count();
-            var cosineSimilarity = (double)intersection / (Math.Sqrt(words1.Count) * Math.Sqrt(words2.Count));
-            return cosineSimilarity;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -436,7 +423,7 @@ namespace MediaSearchSystem
 
                         var item = new ListViewItem
                         {
-                            Text = Path.GetFileName((match.SimilarityScore * 100) + "%"),
+                            Text = Path.GetFileName(match.SimilarityScore + "%"),
                             ImageIndex = imageList1.Images.Count - 1
                         };
 

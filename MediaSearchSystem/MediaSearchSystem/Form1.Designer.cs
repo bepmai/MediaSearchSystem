@@ -52,8 +52,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 84);
+            panel1.Size = new Size(914, 112);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -61,18 +62,19 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(197, 26);
+            label1.Location = new Point(225, 35);
             label1.Name = "label1";
-            label1.Size = new Size(388, 30);
+            label1.Size = new Size(495, 37);
             label1.TabIndex = 1;
             label1.Text = "Hệ thống tìm kiếm ảnh đa phương tiện";
             // 
             // byText
             // 
             byText.Image = (Image)resources.GetObject("byText.Image");
-            byText.Location = new Point(140, 123);
+            byText.Location = new Point(160, 164);
+            byText.Margin = new Padding(3, 4, 3, 4);
             byText.Name = "byText";
-            byText.Size = new Size(172, 125);
+            byText.Size = new Size(197, 167);
             byText.SizeMode = PictureBoxSizeMode.Zoom;
             byText.TabIndex = 1;
             byText.TabStop = false;
@@ -81,9 +83,10 @@
             // bySound
             // 
             bySound.Image = (Image)resources.GetObject("bySound.Image");
-            bySound.Location = new Point(484, 123);
+            bySound.Location = new Point(553, 164);
+            bySound.Margin = new Padding(3, 4, 3, 4);
             bySound.Name = "bySound";
-            bySound.Size = new Size(172, 125);
+            bySound.Size = new Size(197, 167);
             bySound.SizeMode = PictureBoxSizeMode.Zoom;
             bySound.TabIndex = 2;
             bySound.TabStop = false;
@@ -92,9 +95,10 @@
             // byImg
             // 
             byImg.Image = (Image)resources.GetObject("byImg.Image");
-            byImg.Location = new Point(140, 299);
+            byImg.Location = new Point(160, 399);
+            byImg.Margin = new Padding(3, 4, 3, 4);
             byImg.Name = "byImg";
-            byImg.Size = new Size(172, 125);
+            byImg.Size = new Size(197, 167);
             byImg.SizeMode = PictureBoxSizeMode.Zoom;
             byImg.TabIndex = 3;
             byImg.TabStop = false;
@@ -103,9 +107,10 @@
             // bySketch
             // 
             bySketch.Image = Properties.Resources.graphic_tablet;
-            bySketch.Location = new Point(484, 299);
+            bySketch.Location = new Point(553, 399);
+            bySketch.Margin = new Padding(3, 4, 3, 4);
             bySketch.Name = "bySketch";
-            bySketch.Size = new Size(172, 125);
+            bySketch.Size = new Size(197, 167);
             bySketch.SizeMode = PictureBoxSizeMode.Zoom;
             bySketch.TabIndex = 4;
             bySketch.TabStop = false;
@@ -116,9 +121,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.ForestGreen;
-            label2.Location = new Point(140, 251);
+            label2.Location = new Point(160, 335);
             label2.Name = "label2";
-            label2.Size = new Size(172, 21);
+            label2.Size = new Size(215, 28);
             label2.TabIndex = 5;
             label2.Text = "Tìm kiếm bằng văn bản";
             // 
@@ -127,9 +132,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.ForestGreen;
-            label3.Location = new Point(484, 251);
+            label3.Location = new Point(553, 335);
             label3.Name = "label3";
-            label3.Size = new Size(183, 21);
+            label3.Size = new Size(228, 28);
             label3.TabIndex = 6;
             label3.Text = "Tìm kiếm bằng âm thanh";
             // 
@@ -138,9 +143,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.ForestGreen;
-            label4.Location = new Point(140, 427);
+            label4.Location = new Point(160, 569);
             label4.Name = "label4";
-            label4.Size = new Size(178, 21);
+            label4.Size = new Size(221, 28);
             label4.TabIndex = 7;
             label4.Text = "Tìm kiếm bằng hình ảnh";
             // 
@@ -149,17 +154,17 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.ForestGreen;
-            label5.Location = new Point(484, 427);
+            label5.Location = new Point(553, 569);
             label5.Name = "label5";
-            label5.Size = new Size(180, 21);
+            label5.Size = new Size(226, 28);
             label5.TabIndex = 8;
             label5.Text = "Tìm kiếm bằng phác họa";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 491);
+            ClientSize = new Size(914, 655);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -169,9 +174,10 @@
             Controls.Add(bySound);
             Controls.Add(byText);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "MediaSearchSystem";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)byText).EndInit();

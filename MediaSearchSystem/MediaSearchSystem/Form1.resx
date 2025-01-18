@@ -121,7 +121,7 @@
   <data name="byText.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEVoSURBVHhe7d0L
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEVoSURBVHhe7d0L
         bFx5Ye9xN5v4lcTvt53X2k6c117QCoHQFduqKkKgVa8QFaICoVYgEBVV0UVbgYoAgXYrQFtUql5QbyuK
         UQvp3c0m2Tz8nPFz/Bh7PDMevz1je+zxI8kuSzf7yMPn/s/M/9jjySSxPQ//58z3I/20y7KZnXNmlP/X
         jhNnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -424,7 +424,7 @@
   <data name="bySound.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHVQSURBVHhe7Z0L
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAHVQSURBVHhe7Z0L
         nCRXVf8DhBAQISIGEFERQVTwhSggfxEQH6CigKCI2d3Zec90z8zuJpsHSTrZ6e0NQVD+Cn8EEQRBFgQE
         eckjPDLd1bOT6epdBoIJbKaq+rULeT83yfa/7uyZTe/smek6997uqu75fT+f38f/P+zcOqf6Vt1b995z
         zhkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -931,7 +931,7 @@
   <data name="byImg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAP77SURBVHhe7P0H
+        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAP77SURBVHhe7P0H
         tBVHluD9VrvvzdczPdM9896Y7mkz3dOujIT3AgRIQkLelEyp5IW8kEdeyJS8NwgJkJDwILz33oPw9mLu
         xVwDMkgIj4i3d2bkycjInZGRkXHcvRlr/RdVPdU11UjFb+c+eeL+IjvZyU52spOd7GQnO9nJTnayk53s
         ZCc72clOdrKTnexkJzvZyU52spOd7GQnO9nJTnayk53sZCc72clOdrKTnexkJzvZyU52spOd7GQnO9nJ

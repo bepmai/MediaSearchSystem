@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {}
+    "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {}
   },
   "projects": {
-    "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {
+    "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+        "projectUniqueName": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
         "projectName": "MediaSearchSystem",
-        "projectPath": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\",
+        "projectPath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\DPT\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -42,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -57,6 +57,10 @@
             "Emgu.CV.runtime.windows": {
               "target": "Package",
               "version": "[4.9.0.5494, )"
+            },
+            "MathNet.Filtering": {
+              "target": "Package",
+              "version": "[0.7.0, )"
             },
             "NAudio": {
               "target": "Package",
@@ -94,7 +98,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

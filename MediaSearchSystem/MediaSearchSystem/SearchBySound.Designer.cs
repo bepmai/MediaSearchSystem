@@ -100,7 +100,6 @@
             textBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBox1.ForeColor = Color.Teal;
             textBox1.Location = new Point(154, 186);
-            textBox1.MaxLength = 1;
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(611, 41);
