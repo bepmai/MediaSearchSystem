@@ -89,7 +89,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'success', line 5, position 0."
+      "message": "Problem reading the cache file E:\\HTTT1\\nam4\\ki1\\gd2\\DPT\\BC\\MediaSearchSystem\\MediaSearchSystem\\MediaSearchSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'expectedPackageFiles', line 87, position 0."
     }
   ]
 }
